@@ -32,8 +32,8 @@ print('Добавление данных в конец списка: ', data)
 print('*********************************************************************')
 showList = listString [1]
 print ('Показать 2 элемент списка listString >>', showList)
-showListNum = numbers[4]
-print ('Показать 4 элемент списка numbers >>', showListNum)
+showListNum = numbers[3] , numbers[4]
+print ('Показать 3-4 элемент списка numbers >>', showListNum)
 
 print('*********************************************************************')
 stringLength = len(listString)
