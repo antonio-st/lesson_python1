@@ -35,7 +35,7 @@ print('Обновленный список \n',africa)
 print('Обновленный словарь \n', countries)
 # длина списка в словаре
 print('\n')
-print('длина списка Европа в словаре>> ', len(countries['Африка']))
+print('длина списка Африка в словаре>> ', len(countries['Африка']))
 
 
 #добавим к списку новый континент / страну введеные пользователем
@@ -43,9 +43,9 @@ print('\n')
 print('#добавим к списку новый континент / страну введеные пользователем')
 
 addVocContinent = input('введи название континента >> ')
-addVocCountry1 = input ('введи название страны 1 >> ')
-addVocCountry2 = input ('введи название страны 2 >> ')
-addVocCountry3 = input ('введи название страны 3 >> ')
+addVocCountry1 = input('введи название страны 1 >> ')
+addVocCountry2 = input('введи название страны 2 >> ')
+addVocCountry3 = input('введи название страны 3 >> ')
 
 countries[addVocContinent] = [addVocCountry1,addVocCountry2,addVocCountry3]
 
