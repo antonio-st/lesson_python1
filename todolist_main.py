@@ -1,4 +1,5 @@
 import datetime
+import random
 
 # program help and user commands
 HELP = '''
@@ -9,7 +10,8 @@ random  - add a random task fo today
  '''
 # declare a dictionary/list
 tasks = {}
-randomTask = 'do morning exercises'
+randomTasks = ['do morning exercises', 'walk to the Konsomolsky pond', 'an evening walk', 'clean up the yard',
+               'learning English']
 run = True
 
 todayDate = datetime.date.today().strftime("%d %m %Y")
@@ -26,7 +28,7 @@ def add_todo(date, task):
         # the date is not in the dictionary
         # create a new record with the date key
         tasks[date] = [task]
-        print('You task ', tasks[date], ' recorded on date ', date, '\n')
+        print('You task', '\'', task, '\'', 'recorded on date', date, '\n')
 
 
 
@@ -53,12 +55,13 @@ while run:
         add_todo(date,task) # call the function of adding a task
         # random
     elif command == 'random':
-        if todayDate in tasks:
-            print('There are already task today: ')
-            for task in tasks[todayDate]:
-                print('- ', task)
-        else:
-            add_todo(todayDate, randomTask)
+        # if todayDate in tasks:
+        #     print('There are already task today: ')
+        #     for task in tasks[todayDate]:
+        #         print('- ', task)
+        # else:
+        task = random.choice(randomTasks)
+        add_todo(todayDate, task)
         # exit
     elif command == 'exit':
         break
