@@ -1,4 +1,5 @@
 import datetime
+
 # program help and user commands
 HELP = '''
 help - print program help
@@ -14,11 +15,27 @@ run = True
 todayDate = datetime.date.today().strftime("%d %m %Y")
 print('TODAY : ', todayDate)
 
+# add task function
+def add_todo(date, task):
+    if date in tasks:
+        # the day is in the dictionary
+        # add the task to the end of the list
+        tasks[date].append(task)
+        print('You task ', tasks[date], ' recorded on date ', date, '\n')
+    else:
+        # the date is not in the dictionary
+        # create a new record with the date key
+        tasks[date] = [task]
+        print('You task ', tasks[date], ' recorded on date ', date, '\n')
+
+
 
 while run:
+        # help
     command = input('Enter command >> ')
     if command == 'help':
         print(HELP, '\n')
+        # show
     elif command == 'show':
         # we specify the date of the task
         # check if there is a date in the dictionary
@@ -29,28 +46,20 @@ while run:
                 print('- ', task)
         else:
             print('For ', date , 'tasks not found', '\n')
+        # add
     elif command == 'add':
         date = input('Enter the due date for the task>> ')
         task = input('Enter task name >> ')
-        if date in tasks:
-            # the day is in the dictionary
-            # add the task to the end of the list
-            tasks[date].append(task)
-            print('You task ', tasks[date], ' recorded on date ', date, '\n')
-        else:
-            # the date is not in the dictionary
-            # create a new record with the date key
-            tasks[date] = [task]
-            print('You task ', tasks[date], ' recorded on date ', date, '\n')
+        add_todo(date,task) # call the function of adding a task
+        # random
     elif command == 'random':
         if todayDate in tasks:
             print('There are already task today: ')
             for task in tasks[todayDate]:
                 print('- ', task)
         else:
-            tasks[todayDate] = []
-            tasks[todayDate].append(randomTask)
-            print('You task ', randomTask, ' recorded on date ', todayDate, '\n')
+            add_todo(todayDate, randomTask)
+        # exit
     elif command == 'exit':
         break
     else:

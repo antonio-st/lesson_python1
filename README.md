@@ -1,1 +1,1 @@
-# lesson python from NETOLOGY / BOT
+# lesson python from NETOLOGY / BOT TODO LIST
