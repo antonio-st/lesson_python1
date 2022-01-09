@@ -55,13 +55,13 @@ while run:
         add_todo(date,task) # call the function of adding a task
         # random
     elif command == 'random':
-        # if todayDate in tasks:
-        #     print('There are already task today: ')
-        #     for task in tasks[todayDate]:
-        #         print('- ', task)
-        # else:
-        task = random.choice(randomTasks)
-        add_todo(todayDate, task)
+        if todayDate in tasks:
+            print('There are already task today: ')
+            for task in tasks[todayDate]:
+                print('- ', task)
+        else:
+            task = random.choice(randomTasks)
+            add_todo(todayDate, task)
         # exit
     elif command == 'exit':
         break
